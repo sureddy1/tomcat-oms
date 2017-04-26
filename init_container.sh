@@ -11,4 +11,12 @@ else
 	echo "Info: Tomcat configuration directory already exists"
 fi
 
+cd /home/site/wwwroot
+
+wget https://raw.githubusercontent.com/sureddy1/appsvc-tomcat/master/apps/ROOT.war
+wget https://raw.githubusercontent.com/sureddy1/appsvc-tomcat/master/apps/examples.war
+wget https://raw.githubusercontent.com/sureddy1/appsvc-tomcat/master/apps/host-manager.war
+wget https://raw.githubusercontent.com/sureddy1/appsvc-tomcat/master/apps/manager.war
+wget https://raw.githubusercontent.com/sureddy1/appsvc-tomcat/master/apps/docs.war
+
 /usr/local/tomcat/bin/catalina.sh run

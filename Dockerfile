@@ -3,7 +3,7 @@ FROM tomcat:9.0.0-jre8
 COPY init_container.sh /bin/
 
 RUN apt-get update \
-	&& apt-get-install -y --no-install-recommends \
+	&& apt install -y --no-install-recommends \
 		openssh-server \
 	&& chmod 755 /bin/init_container.sh \
 	&& echo "root:Docker!" | chpasswd 
