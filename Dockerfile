@@ -5,6 +5,7 @@ COPY init_container.sh /bin/
 RUN apt-get update \
 	&& apt install -y --no-install-recommends \
 		openssh-server \
+	&& apt install -y vim \
 	&& chmod 755 /bin/init_container.sh \
 	&& echo "root:Docker!" | chpasswd 
 	
