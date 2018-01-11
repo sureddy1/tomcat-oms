@@ -1,7 +1,10 @@
 #!/bin/bash
 service ssh start
 
-wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w ec95873b-d48d-4287-9111-0e83093ea0ad -s SqTZZ5WNbphmU16A4Jf+2pQy/71FURgehST/ghSltYFB6ixKMaWF+CD4OIjKb8+mYTWvc+ylMX9hrWL21kGJkQ== -d opinsights.azure.com
+echo exit 0 > /usr/sbin/policy-rc.d
+
+wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh
+sh onboard_agent.sh -w ec95873b-d48d-4287-9111-0e83093ea0ad -s SqTZZ5WNbphmU16A4Jf+2pQy/71FURgehST/ghSltYFB6ixKMaWF+CD4OIjKb8+mYTWvc+ylMX9hrWL21kGJkQ== -d opinsights.azure.com &
 
 if [ ! -d "/home/site/conf" ]; then
 	echo "Info: Tomcat configuration directory is not available. Creating one"
