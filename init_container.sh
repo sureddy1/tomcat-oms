@@ -1,7 +1,12 @@
 #!/bin/bash
 service ssh start
 
-echo exit 0 > /usr/sbin/policy-rc.d
+sed -i -e 's/bind 127.0.0.1/bind 0.0.0.0/g' /etc/opt/microsoft/omsagent/sysconf/omsagent.d/container.conf
+sed -i -e 's/bind 127.0.0.1/bind 0.0.0.0/g' /etc/opt/microsoft/omsagent/sysconf/omsagent.d/syslog.conf
+sed -i -e 's/^exit 101$/exit 0/g' /usr/sbin/policy-rc.d
+
+sed -i.bak "s/record\[\"Host\"\] = hostname/record\[\"Host\"\] = OMS::Common.get_hostname/" /opt/microsoft/omsagent/plugin/filter_syslog.rb
+
 
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh
 sh onboard_agent.sh -w ec95873b-d48d-4287-9111-0e83093ea0ad -s SqTZZ5WNbphmU16A4Jf+2pQy/71FURgehST/ghSltYFB6ixKMaWF+CD4OIjKb8+mYTWvc+ylMX9hrWL21kGJkQ== -d opinsights.azure.com &
