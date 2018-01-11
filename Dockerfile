@@ -8,7 +8,7 @@ RUN apt-get update \
 	&& apt install -y vim \
 	&& apt install -y python-ctypes \
 	&& apt install -y sudo \
-	&& apt install -y openssl=1.0.1t-1+deb8u7 \
+	&& apt install -y --force-yes openssl=1.0.1t-1+deb8u7 \
 	&& apt install -y net-tools \
 	&& apt install -y rsyslog \
 	&& apt install -y cron \
