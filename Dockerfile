@@ -1,4 +1,4 @@
-FROM tomcat:9.0.0-jre8
+FROM tomcat:8.0.48-jre7
 
 COPY init_container.sh /bin/
 
@@ -6,6 +6,8 @@ RUN apt-get update \
 	&& apt install -y --no-install-recommends \
 		openssh-server \
 	&& apt install -y vim \
+	&& apt install -y python-ctypes \
+	&& apt install -y sudo \
 	&& chmod 755 /bin/init_container.sh \
 	&& echo "root:Docker!" | chpasswd 
 	
