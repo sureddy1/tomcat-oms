@@ -12,7 +12,7 @@ RUN apt-get update \
 	&& apt install -y net-tools \
 	&& apt install -y rsyslog \
 	&& apt install -y cron \
-	&& apt install -y dmidecode
+	&& apt install -y dmidecode \
 	&& chmod 755 /bin/init_container.sh \
 	&& echo "root:Docker!" | chpasswd 
 	
