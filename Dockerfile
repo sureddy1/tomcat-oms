@@ -9,6 +9,10 @@ RUN apt-get update \
 	&& apt install -y python-ctypes \
 	&& apt install -y sudo \
 	&& apt install -y openssl=1.0.1t-1+deb8u7 \
+	&& apt install -y net-tools \
+	&& apt install -y rsyslog \
+	&& apt install -y cron \
+	&& apt install -y dmidecode
 	&& chmod 755 /bin/init_container.sh \
 	&& echo "root:Docker!" | chpasswd 
 	
